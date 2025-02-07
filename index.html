@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family:"Helvetica Neue", Arial, sans sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 450px;
+            background-color: #c7c7c7;
+        }
+
+        .container{
+            margin-top: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .profile{
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .profile img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 0px solid white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0,2);
+            transition:  all 0.3s ease-in-out;
+        }
+
+        .profile img:hover{
+            width: 110px;
+            height: 110px;
+            border-radius: 65%;
+        }
+
+        .profile .tooltiptext{
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 10px; 
+            padding: 5px;
+            position: absolute;
+            bottom: 120%; 
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .profile:hover .tooltiptext{
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .name{
+            text-align: center;
+        }
+
+        .name h2{
+            margin-bottom: 10px;
+            margin-top: 25px;
+        }
+
+        .name p{
+            margin-top: 0;
+            font-size: 14px;
+            width: 280px;
+            text-align: center;
+        }
+
+        .box{
+            background-color: white;
+            width: 300px;
+            height: 300px;
+            border: 0px solid black;
+            border-radius: 2%;
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .inbox1{
+            display: flex;
+            background-color: rgb(101, 80, 74);
+            margin-top:20px;
+            width: 250px;
+            height: 40px;
+            border-radius: 999px;
+            justify-content:space-around;
+            align-items: center;
+            transition:  all 0.3s ease-in-out;
+        }
+
+        .inbox1:hover{
+            width: 260px;
+            height: 40px;
+            border-radius: 1000px;
+            font-size: 17px;
+            background-color: rgba(101, 80, 74, 0.836);
+            backdrop-filter: blur(5px);
+        }
+
+        .iconig{
+            width: 25px;
+            height: 25px;
+        }
+
+        .textig{
+            color:rgb(255, 255, 255);
+        }
+
+        .gif1{
+            width: 30px;
+            height: 30px;
+            border-radius: 999px;
+        }
+
+        .inbox2{
+            display: flex;
+            background-color: rgb(101, 80, 74);
+            margin-top: 20;
+            width: 250px;
+            height: 40px;
+            border-radius: 999px;
+            justify-content: space-around;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .inbox2:hover{
+            width: 260px;
+            height: 40px;
+            border-radius: 1000px;
+            font-size: 17px;
+            background-color: rgba(101, 80, 74, 0.836);
+            backdrop-filter: blur(5px);
+        }
+
+        .iconyt{
+            width: 25px;
+            width: 25px;
+        }
+
+        .textyt{
+            color: white;
+        }
+
+        .gif2{
+            width: 30px;
+            height: 30px;
+            border-radius: 999px;
+        }
+
+        .inbox3{
+            display: flex;
+            background-color: rgb(101, 80, 74);
+            margin-top: 20;
+            width: 250px;
+            height: 40px;
+            border-radius: 999px;
+            justify-content: space-around;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .inbox3:hover{
+            width: 260px;
+            height: 40px;
+            border-radius: 1000px;
+            font-size: 17px;
+            background-color: rgba(101, 80, 74, 0.836);
+            backdrop-filter: blur(5px);
+        }
+
+        .icontk{
+            width: 25px;
+            width: 25px;
+        }
+
+        .texttk{
+            color: white;
+        }
+
+        .gif3{
+            width: 30px;
+            height: 30px;
+            border-radius: 999px;
+        }
+
+        .inbox4{
+            display: flex;
+            background-color: rgb(101, 80, 74);
+            margin-top: 20;
+            width: 250px;
+            height: 40px;
+            border-radius: 999px;
+            justify-content: space-around;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .inbox4:hover{
+            width: 260px;
+            height: 40px;
+            border-radius: 1000px;
+            font-size: 17px;
+            background-color: rgba(101, 80, 74, 0.836);
+            backdrop-filter: blur(5px);
+        }
+
+        .icondc{
+            width: 25px;
+            width: 25px;
+        }
+
+        .textdc{
+            color: white;
+        }
+
+        .gif4{
+            width: 30px;
+            height: 30px;
+            border-radius: 999px;
+        }
+
+        .inbox1 a, .inbox2 a, .inbox3 a, .inbox4 a{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            width: 100%;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .inbox1 a > p, .inbox2 a > p, .inbox3 a > p, .inbox4 a > p{
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .inbox5{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            height: 25px;
+            border-radius: 999px;
+        }
+
+        .texttrk{
+            display: flex;
+            flex-direction: row;
+            font-size: 10px;
+            text-align: center;
+        }
+
+    </style>
+    <title>kynich_</title>
+</head>
+<body>
+   <div class="container">
+
+        <div class="profile">
+            <img src="Mai Sakurajima.jpeg" alt="foto profile">
+            <span class="tooltiptext">Kynich ❤️ Mai</span>
+        </div>
+
+        <div class="name">
+            <h2>kynich</h2>
+            <p>hello I'm kynich, nice to meet you, 
+                if you like my content don't forget to follow me ✌️</p>
+        </div>
+
+        <div class="box">
+            <div class="inbox1">
+                <a href="https://www.instagram.com/kynich_?igsh=MTVkeDM4cWI0b2tscA==" target="_blank" rel="noopener noreferrer">
+                    <img class="iconig" src="instagram-icon.webp" alt="Icon Instagram">
+                    <p class="textig">Instagram</p>
+                    <img class="gif1" src="rikka.gif" alt="">
+                </a>
+            </div>
+
+            <div class="inbox2">
+                <a href="https://www.youtube.com/@kyyni" target="_blank" rel="noopener noreferrer">
+                    <img class="iconyt" src="youtube icon.webp" alt="Icon Youtube">
+                    <p class="textyt">Youtube</p>
+                    <img class="gif2" src="hutao joget.gif" alt="">
+                </a>
+            </div>
+
+            <div class="inbox3">
+                <a href="https://www.tiktok.com/@kynich72?_t=ZS-8thmpZJOMn2&_r=1" target="_blank" rel="noopener noreferrer">
+                    <img class="icontk" src="tiktok icon [E406422].png" alt="Icon Tiktok">
+                    <p class="texttk">Tiktok</p>
+                    <img class="gif3" src="Blue Archive.gif" alt="">
+                </a>
+            </div>
+
+            <div class="inbox4">
+                <a href="https://discordapp.com/users/1094256387032367264" target="_blank" rel="noopener noreferrer">
+                    <img class="icondc" src="discord icon.webp" alt="Icon Discord">
+                    <p class="textdc">Discord</p>
+                    <img class="gif4" src="mai san.gif" alt="">
+                </a>
+            </div>
+
+            <div class="inbox5">
+                <p class="texttrk">Don't forget to follow and follow all my social media, thank you</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
